@@ -1,26 +1,26 @@
 // complete this js code
+// Person constructor function
 function Person(name, age) {
-	this.name=name;
-	this.age=age;
+  this.name = name;
+  this.age = age;
 }
 
-Person.prototype.greet=function () {
-	console.log("Hello, my name is " + this.name + ", I am "+ this.age + " years old, and my job title is " + this.jobTitle + ".")
-	
+// Prototype method for Person
+Person.prototype.greet = function() {
+  console.log("Hello, my name is " + this.name + ", I am " + this.age + " years old.");
 }
 
-//function prototype
+// Employee constructor function
 function Employee(name, age, jobTitle) {
-	this.name=name;
-	this.age=age;
-	this.jobTitle=jobTitle;
+  Person.call(this, name, age);
+  this.jobTitle = jobTitle;
 }
 
-//inherit the person prototype
-Employee.prototype=Object.create(Person.prototype);
-Employee.prototype.constructor=Employee;
+// Inherit the Person prototype
+Employee.prototype = Object.create(Person.prototype);
+Employee.prototype.constructor = Employee;
 
-//prototype for Employee
+// Prototype method for Employee
 Employee.prototype.jobGreet = function() {
   console.log("Hello, my name is " + this.name + ", I am " + this.age + " years old, and my job title is " + this.jobTitle + ".");
 }
